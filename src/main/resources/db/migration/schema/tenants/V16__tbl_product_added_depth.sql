@@ -1,0 +1,1 @@
+alter table tbl_product add column depth varchar(30);

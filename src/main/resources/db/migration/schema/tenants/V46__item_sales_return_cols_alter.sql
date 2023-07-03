@@ -1,0 +1,2 @@
+alter table tbl_item_sales_return_invoice_main drop column total_invoice_qty2;
+alter table tbl_item_sales_return_invoice_main rename column total_invoice_qty1 to total_invoice_qty;

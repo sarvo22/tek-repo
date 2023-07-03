@@ -1,0 +1,13 @@
+alter table tbl_bank_pay_rec_main add column bank_name  varchar(50);
+alter table tbl_bank_pay_rec_main add column bank_account_no   varchar(50);
+alter table tbl_bank_pay_rec_main add column bank_ifsc_code    varchar(50);
+alter table tbl_bank_pay_rec_main add column bank_swift_code    varchar(50);
+alter table tbl_bank_pay_rec_main add column bank_payee_name    varchar(50);
+alter table tbl_bank_pay_rec_main add column bank_account_type varchar(30);
+alter table tbl_bank_pay_rec_main add column bank_address   text;
+alter table tbl_bank_pay_rec_main add column party_type	varchar(30);
+alter table tbl_bank_pay_rec_main add column party_id   integer;
+alter table tbl_jv_main add column party_type		varchar(30);
+alter table tbl_jv_main add column party_id		integer;
+alter table tbl_cash_pay_rec_main add column party_type		varchar(30);
+alter table tbl_cash_pay_rec_main add column party_id		integer;

@@ -1,0 +1,1 @@
+alter table tbl_jew_sales_invoice_main add total_received_amount numeric(20,4) default 0 not null;

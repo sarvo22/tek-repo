@@ -1,0 +1,2 @@
+insert into tbl_reports (report_id,subscription_id,report_name,display_name,report_group,is_enabled,group_sort_seq,sort_seq,is_locked,is_deleted,report_category)values(1000020,6001,'RMHistory','History','History',1,1,1,0,0,'RM_REGISTER');
+insert into tbl_reports (report_id,subscription_id,report_name,display_name,report_group,is_enabled,group_sort_seq,sort_seq,is_locked,is_deleted,report_category)values(2000020,6002,'RMHistory','History','History',1,4,3,0,0,'RM_REGISTER');

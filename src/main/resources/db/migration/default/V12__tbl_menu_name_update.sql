@@ -1,0 +1,13 @@
+update tbl_menu set label = 'Sales Order' where menu_id = 10013;
+update tbl_menu set label = 'Sales Invoice' where menu_id = 10015;
+update tbl_menu set label = 'Memo Sales' where menu_id = 10017;
+update tbl_menu set label = 'Memo Sales Return' where menu_id = 10019;
+update tbl_menu set label = 'Sales Return' where menu_id = 10021;
+update tbl_menu set label = 'Purchase Order' where menu_id = 10026;
+update tbl_menu set label = 'Purchase Invoice' where menu_id = 10031;
+update tbl_menu set label = 'Purchase Return' where menu_id = 10032;
+update tbl_menu set label = 'Memo Purchase' where menu_id = 10033;
+update tbl_menu set label = 'Memo Purchase Return' where menu_id = 10034;
+update tbl_menu set label = 'Bin Transfer' where menu_id = 10038;
+update tbl_menu set label = 'Inward' where menu_id = 10042;
+update tbl_menu set label = 'outward' where menu_id = 10043;

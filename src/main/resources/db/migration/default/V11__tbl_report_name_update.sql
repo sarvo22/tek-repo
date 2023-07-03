@@ -1,0 +1,3 @@
+insert into tbl_reports (report_id,subscription_id,report_name,display_name,report_group,is_enabled,group_sort_seq,sort_seq,is_locked,is_deleted,report_category)values(1000019,6001,'RmMixingRegister','Mixing Register','Mixing',1,1,1,0,0,'RM_GENERAL_REGISTER');
+insert into tbl_reports (report_id,subscription_id,report_name,display_name,report_group,is_enabled,group_sort_seq,sort_seq,is_locked,is_deleted,report_category)values(2000019,6002,'RmMixingRegister','Mixing Register','Mixing',1,1,1,0,0,'RM_GENERAL_REGISTER');
+update tbl_reports set report_name = 'Creditors' where report_id in(1000018,2000018,5000005,6000005,3000002,4000002);
