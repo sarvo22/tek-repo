@@ -1,0 +1,1 @@
+alter table tbl_jv_breakup add column inv_type varchar(30) not null;

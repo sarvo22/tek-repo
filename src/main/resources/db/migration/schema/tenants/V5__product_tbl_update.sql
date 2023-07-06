@@ -1,0 +1,1 @@
+alter table tbl_product add document_url text;

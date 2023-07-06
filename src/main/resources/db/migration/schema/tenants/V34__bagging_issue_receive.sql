@@ -1,0 +1,248 @@
+create SEQUENCE tbl_bagging_issue_respective_main_seq;
+create table if not exists tbl_bagging_issue_respective_main
+(
+	inv_id      integer not null default nextval('tbl_bagging_issue_respective_main_seq'),
+	inv_type    varchar(50) not null,
+	inv_no      varchar(50) not null,
+	reference_no varchar(50),
+	inv_dt      date not null,
+	currency    varchar(50) not null,
+	exchange_rate   numeric(20,4) not null,
+	factory_id      integer not null,
+	note        text,
+	is_exchange     integer default 0 not null,
+	company_id      integer not null,
+	remarks			text,
+	system_remarks	text,
+	sort_seq		integer default 0 not null,
+	is_locked		integer default 0 not null,
+	created_by 		integer NOT NULL,
+	created_dt		TIMESTAMP DEFAULT current_timestamp  NOT NULL,
+	modified_by 	integer,
+	modified_dt		TIMESTAMP,
+	is_deleted		integer default 0 not null,
+	PRIMARY KEY(inv_id),
+	CONSTRAINT tbl_bagging_issue_respective_main_fk1 FOREIGN KEY(factory_id) REFERENCES tbl_factory(factory_id),
+	constraint tbl_bagging_issue_respective_main_fk2 FOREIGN key(company_id) references public.tbl_company(company_id)
+);
+
+create SEQUENCE tbl_bagging_issue_respective_det_seq;
+create table if not exists tbl_bagging_issue_respective_det
+(
+	inv_det_id integer not null default nextval('tbl_bagging_issue_respective_det_seq'),
+	inv_id integer not null,
+	jew_id integer not null,
+	lot_id integer not null,
+    bin_id integer not null,
+    ref_inv_id integer not null,
+	ref_inv_type varchar(50) not null,
+	ref_inv_det_id  integer not null,
+    description text,
+	inv_qty     numeric(20,4) default 0 not null,
+    uom         varchar(30) not null,
+    inv_qty1    numeric(20,4) default 0 not null,
+    inv_qty2    numeric(20,4) default 0 not null,
+    uom1        varchar(30) not null,
+    uom2        varchar(30),
+	remarks			text,
+	system_remarks	text,
+	sort_seq		integer default 0 not null,
+	is_locked		integer default 0 not null,
+	created_by 		integer NOT NULL,
+	created_dt		TIMESTAMP DEFAULT current_timestamp  NOT NULL,
+	modified_by 	integer,
+	modified_dt		TIMESTAMP,
+	is_deleted		integer default 0 not null,
+	PRIMARY KEY(inv_det_id),
+	CONSTRAINT tbl_bagging_issue_respective_det_fk2 FOREIGN KEY(inv_id) REFERENCES tbl_bagging_issue_respective_main(inv_id),
+	CONSTRAINT tbl_bagging_issue_respective_det_fk3 FOREIGN KEY(jew_id) REFERENCES tbl_jewellery(jew_id),
+	CONSTRAINT tbl_bagging_issue_respective_det_fk4 FOREIGN KEY(lot_id) REFERENCES tbl_product(product_id),
+	CONSTRAINT tbl_bagging_issue_respective_det_fk5 FOREIGN KEY(bin_id) REFERENCES tbl_bin(bin_id)
+);
+
+create SEQUENCE tbl_bagging_return_respective_main_seq;
+create table if not exists tbl_bagging_return_respective_main
+(
+	inv_id      integer not null default nextval('tbl_bagging_return_respective_main_seq'),
+	inv_type    varchar(50) not null,
+	inv_no      varchar(50) not null,
+	reference_no varchar(50),
+	inv_dt      date not null,
+	currency    varchar(50) not null,
+	exchange_rate   numeric(20,4) not null,
+	factory_id      integer not null,
+	note        text,
+	is_exchange     integer default 0 not null,
+	company_id      integer not null,
+	remarks			text,
+	system_remarks	text,
+	sort_seq		integer default 0 not null,
+	is_locked		integer default 0 not null,
+	created_by 		integer NOT NULL,
+	created_dt		TIMESTAMP DEFAULT current_timestamp  NOT NULL,
+	modified_by 	integer,
+	modified_dt		TIMESTAMP,
+	is_deleted		integer default 0 not null,
+	PRIMARY KEY(inv_id),
+	CONSTRAINT tbl_bagging_return_respective_main_fk1 FOREIGN KEY(factory_id) REFERENCES tbl_factory(factory_id),
+	constraint tbl_bagging_return_respective_main_fk2 FOREIGN key(company_id) references public.tbl_company(company_id)
+);
+
+create SEQUENCE tbl_bagging_return_respective_det_seq;
+create table if not exists tbl_bagging_return_respective_det
+(
+	inv_det_id integer not null default nextval('tbl_bagging_return_respective_det_seq'),
+	inv_id integer not null,
+	jew_id integer not null,
+	lot_id integer not null,
+    bin_id integer not null,
+    ref_inv_id integer not null,
+	ref_inv_type varchar(50) not null,
+	ref_inv_det_id  integer not null,
+    description text,
+	inv_qty     numeric(20,4) default 0 not null,
+    uom         varchar(30) not null,
+    inv_qty1    numeric(20,4) default 0 not null,
+    inv_qty2    numeric(20,4) default 0 not null,
+    uom1        varchar(30) not null,
+    uom2        varchar(30),
+	remarks			text,
+	system_remarks	text,
+	sort_seq		integer default 0 not null,
+	is_locked		integer default 0 not null,
+	created_by 		integer NOT NULL,
+	created_dt		TIMESTAMP DEFAULT current_timestamp  NOT NULL,
+	modified_by 	integer,
+	modified_dt		TIMESTAMP,
+	is_deleted		integer default 0 not null,
+	PRIMARY KEY(inv_det_id),
+	CONSTRAINT tbl_bagging_return_respective_det_fk2 FOREIGN KEY(inv_id) REFERENCES tbl_bagging_issue_respective_main(inv_id),
+	CONSTRAINT tbl_bagging_return_respective_det_fk3 FOREIGN KEY(jew_id) REFERENCES tbl_jewellery(jew_id),
+	CONSTRAINT tbl_bagging_return_respective_det_fk4 FOREIGN KEY(lot_id) REFERENCES tbl_product(product_id),
+	CONSTRAINT tbl_bagging_return_respective_det_fk5 FOREIGN KEY(bin_id) REFERENCES tbl_bin(bin_id)
+);
+
+
+create SEQUENCE tbl_bagging_issue_irrespective_main_seq;
+create table if not exists tbl_bagging_issue_irrespective_main
+(
+	inv_id      integer not null default nextval('tbl_bagging_issue_irrespective_main_seq'),
+	inv_type    varchar(50) not null,
+	inv_no      varchar(50) not null,
+	reference_no varchar(50),
+	inv_dt      date not null,
+	currency    varchar(50) not null,
+	exchange_rate   numeric(20,4) not null,
+	factory_id      integer not null,
+	note        text,
+	is_exchange     integer default 0 not null,
+	company_id      integer not null,
+	remarks			text,
+	system_remarks	text,
+	sort_seq		integer default 0 not null,
+	is_locked		integer default 0 not null,
+	created_by 		integer NOT NULL,
+	created_dt		TIMESTAMP DEFAULT current_timestamp  NOT NULL,
+	modified_by 	integer,
+	modified_dt		TIMESTAMP,
+	is_deleted		integer default 0 not null,
+	PRIMARY KEY(inv_id),
+	CONSTRAINT tbl_bagging_issue_irrespective_main_fk1 FOREIGN KEY(factory_id) REFERENCES tbl_factory(factory_id),
+	constraint tbl_bagging_issue_irrespective_main_fk2 FOREIGN key(company_id) references public.tbl_company(company_id)
+);
+
+create SEQUENCE tbl_bagging_issue_irrespective_det_seq;
+create table if not exists tbl_bagging_issue_irrespective_det
+(
+	inv_det_id integer not null default nextval('tbl_bagging_issue_irrespective_det_seq'),
+	inv_id integer not null,
+	jew_id integer not null,
+	lot_id integer not null,
+    bin_id integer not null,
+    ref_inv_id integer not null,
+	ref_inv_type varchar(50) not null,
+	ref_inv_det_id  integer not null,
+    description text,
+	inv_qty     numeric(20,4) default 0 not null,
+    uom         varchar(30) not null,
+    inv_qty1    numeric(20,4) default 0 not null,
+    inv_qty2    numeric(20,4) default 0 not null,
+    uom1        varchar(30) not null,
+    uom2        varchar(30),
+	remarks			text,
+	system_remarks	text,
+	sort_seq		integer default 0 not null,
+	is_locked		integer default 0 not null,
+	created_by 		integer NOT NULL,
+	created_dt		TIMESTAMP DEFAULT current_timestamp  NOT NULL,
+	modified_by 	integer,
+	modified_dt		TIMESTAMP,
+	is_deleted		integer default 0 not null,
+	PRIMARY KEY(inv_det_id),
+	CONSTRAINT tbl_bagging_issue_irrespective_det_fk2 FOREIGN KEY(inv_id) REFERENCES tbl_bagging_issue_irrespective_main(inv_id),
+	CONSTRAINT tbl_bagging_issue_irrespective_det_fk3 FOREIGN KEY(jew_id) REFERENCES tbl_jewellery(jew_id),
+	CONSTRAINT tbl_bagging_issue_irrespective_det_fk4 FOREIGN KEY(lot_id) REFERENCES tbl_product(product_id),
+	CONSTRAINT tbl_bagging_issue_irrespective_det_fk5 FOREIGN KEY(bin_id) REFERENCES tbl_bin(bin_id)
+);
+
+create SEQUENCE tbl_bagging_return_irrespective_main_seq;
+create table if not exists tbl_bagging_return_irrespective_main
+(
+	inv_id      integer not null default nextval('tbl_bagging_return_irrespective_main_seq'),
+	inv_type    varchar(50) not null,
+	inv_no      varchar(50) not null,
+	reference_no varchar(50),
+	inv_dt      date not null,
+	currency    varchar(50) not null,
+	exchange_rate   numeric(20,4) not null,
+	factory_id      integer not null,
+	note        text,
+	is_exchange     integer default 0 not null,
+	company_id      integer not null,
+	remarks			text,
+	system_remarks	text,
+	sort_seq		integer default 0 not null,
+	is_locked		integer default 0 not null,
+	created_by 		integer NOT NULL,
+	created_dt		TIMESTAMP DEFAULT current_timestamp  NOT NULL,
+	modified_by 	integer,
+	modified_dt		TIMESTAMP,
+	is_deleted		integer default 0 not null,
+	PRIMARY KEY(inv_id),
+	CONSTRAINT tbl_bagging_return_irrespective_main_fk1 FOREIGN KEY(factory_id) REFERENCES tbl_factory(factory_id),
+	constraint tbl_bagging_return_irrespective_main_fk2 FOREIGN key(company_id) references public.tbl_company(company_id)
+);
+
+create SEQUENCE tbl_bagging_return_irrespective_det_seq;
+create table if not exists tbl_bagging_return_irrespective_det
+(
+	inv_det_id integer not null default nextval('tbl_bagging_return_irrespective_det_seq'),
+	inv_id integer not null,
+    ref_inv_id integer not null,
+	ref_inv_type varchar(50) not null,
+	ref_inv_det_id  integer not null,
+	jew_id integer not null,
+	lot_id integer not null,
+    bin_id integer not null,
+    description text,
+	inv_qty     numeric(20,4) default 0 not null,
+    uom         varchar(30) not null,
+    inv_qty1    numeric(20,4) default 0 not null,
+    inv_qty2    numeric(20,4) default 0 not null,
+    uom1        varchar(30) not null,
+    uom2        varchar(30),
+	remarks			text,
+	system_remarks	text,
+	sort_seq		integer default 0 not null,
+	is_locked		integer default 0 not null,
+	created_by 		integer NOT NULL,
+	created_dt		TIMESTAMP DEFAULT current_timestamp  NOT NULL,
+	modified_by 	integer,
+	modified_dt		TIMESTAMP,
+	is_deleted		integer default 0 not null,
+	PRIMARY KEY(inv_det_id),
+	CONSTRAINT tbl_bagging_return_irrespective_det_fk2 FOREIGN KEY(inv_id) REFERENCES tbl_bagging_issue_irrespective_main(inv_id),
+	CONSTRAINT tbl_bagging_return_irrespective_det_fk3 FOREIGN KEY(jew_id) REFERENCES tbl_jewellery(jew_id),
+	CONSTRAINT tbl_bagging_return_irrespective_det_fk4 FOREIGN KEY(lot_id) REFERENCES tbl_product(product_id),
+	CONSTRAINT tbl_bagging_return_irrespective_det_fk5 FOREIGN KEY(bin_id) REFERENCES tbl_bin(bin_id)
+);

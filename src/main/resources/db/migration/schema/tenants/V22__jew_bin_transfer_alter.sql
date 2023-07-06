@@ -1,0 +1,1 @@
+alter table tbl_jew_bin_transfer_main add column total_qty numeric(20,4) not null default 0;

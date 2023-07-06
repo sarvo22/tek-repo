@@ -1,0 +1,1 @@
+alter table tbl_design add column category varchar(50);

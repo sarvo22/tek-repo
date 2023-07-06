@@ -1,0 +1,1 @@
+alter table tbl_debit_credit_note_main add column party_account_id integer;

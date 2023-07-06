@@ -1,0 +1,9 @@
+alter table tbl_subscription add subscription_type varchar(10) default 'B' not null;
+update tbl_subscription set subscription_type = 'B' where subscription_id = 6001;
+update tbl_subscription set subscription_type = 'B' where subscription_id = 6003;
+update tbl_subscription set subscription_type = 'B' where subscription_id = 6005;
+update tbl_subscription set subscription_type = 'B' where subscription_id = 6007;
+update tbl_subscription set subscription_type = 'P' where subscription_id = 6002;
+update tbl_subscription set subscription_type = 'P' where subscription_id = 6004;
+update tbl_subscription set subscription_type = 'P' where subscription_id = 6006;
+update tbl_subscription set subscription_type = 'P' where subscription_id = 6008;

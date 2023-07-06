@@ -1,0 +1,5 @@
+alter table tbl_item_sales_invoice_det drop constraint tbl_item_sales_invoice_det_fk2;
+alter table tbl_item_sales_return_invoice_det drop constraint tbl_item_sales_return_invoice_det_fk2;
+
+alter table tbl_item_sales_invoice_det add constraint tbl_item_sales_invoice_det_fk2 FOREIGN KEY(item_id) REFERENCES tbl_item(item_id);
+alter table tbl_item_sales_return_invoice_det add constraint tbl_item_sales_return_invoice_det_fk2 FOREIGN KEY(item_id) REFERENCES tbl_item(item_id);

@@ -1,0 +1,2 @@
+alter table tbl_payment_paid_main add column bank_cash_account_id integer;
+alter table tbl_payment_received_main add column bank_cash_account_id integer;
